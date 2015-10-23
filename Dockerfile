@@ -21,7 +21,7 @@ RUN apt-get update
 RUN apt-get -yq install python2.7 
 
 # get and run setup script
-RUN RUN gpasswd -a steam tty
+RUN gpasswd -a steam tty
 USER steam
 RUN mkdir ~/spaceengineers
 RUN cd ~/spaceengineers
