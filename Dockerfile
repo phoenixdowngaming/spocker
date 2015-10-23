@@ -18,15 +18,19 @@ RUN apt-get -yq install wine1.7 winetricks xvfb
 # install python
 RUN add-apt-repository ppa:fkrull/deadsnakes
 RUN apt-get update
-RUN apt-get -yq install python2.7 
+RUN apt-get -yq install python2.7
 
 # get and run setup script
-RUN gpasswd -a steam tty
+RUN useradd -m -s /bin/bash steam
+RUN usermod -a -G video,audio,tty steam
+RUN mkdir -p /home/steam/steamcmd
+RUN chown -R steam. /home/steam
+#RUN gpasswd -a steam tty
 USER steam
-RUN mkdir ~/spaceengineers
-RUN cd ~/spaceengineers
+RUN mkdir /home/steam/spaceengineers
+RUN cd /home/steam/spaceengineers
 RUN wget -O start.sh https://raw.githubusercontent.com/ArghArgh200/SEDS-Setup/master/start.sh
 RUN chmod +x start.sh
- 
+
 ENTRYPOINT ["/start.sh"]
 
