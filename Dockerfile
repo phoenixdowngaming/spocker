@@ -19,6 +19,7 @@ RUN apt-get -yq install wine1.7 winetricks xvfb
 RUN add-apt-repository ppa:fkrull/deadsnakes
 RUN apt-get update
 RUN apt-get -yq install python2.7
+RUN apt-get -yq install screen byobu
 
 # get and run setup script
 RUN useradd -m -s /bin/bash steam
@@ -28,10 +29,12 @@ RUN mkdir /home/steam/spaceengineers
 #RUN gpasswd -a steam tty
 # RUN wget https://raw.githubusercontent.com/ArghArgh200/SEDS-Setup/master/start.sh
 ADD start.sh /home/steam/spaceengineers/start.sh
+ADD run.sh /home/steam/spaceengineers/run.sh
 RUN chmod +x  /home/steam/spaceengineers/start.sh
+RUN chmod +x  /home/steam/spaceengineers/run.sh
 RUN chown -R steam. /home/steam
 WORKDIR /home/steam/spaceengineers
 USER steam
 
-ENTRYPOINT ["/home/steam/spaceengineers/start.sh"]
+ENTRYPOINT ["/home/steam/spaceengineers/run.sh"]
 
