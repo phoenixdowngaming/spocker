@@ -2,8 +2,10 @@
 Docker Space Engineers Server
 ============================
 
-Pull down with docker:
+Use the make script:
 ```bash
-sudo docker pull jamessmoore/spocker
+	make run
 ```
+
+Additional documentation will be added shortly.
 

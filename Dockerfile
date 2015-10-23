@@ -6,7 +6,7 @@ USER root
 RUN apt-get -yq update
 
 # install package building helpers
-RUN apt-get -yq --force-yes install vim less python-software-properties
+RUN apt-get -yq --force-yes install vim less python-software-properties /usr/bin/add-apt-repository
 
 # install wine
 RUN /usr/bin/add-apt-repository ppa:ubuntu-wine/ppa
