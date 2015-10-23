@@ -6,12 +6,14 @@ USER root
 RUN apt-get -yq update
 
 # install package building helpers
-RUN apt-get -yq --force-yes install vim less python-software-properties
+RUN apt-get -yq --force-yes install vim less python-software-properties software-properties-common
 
 # install wine
-RUN /usr/bin/add-apt-repository ppa:ubuntu-wine/ppa
+RUN add-apt-repository ppa:ubuntu-wine/ppa
+#wine needs i386 libs
+RUN dpkg --add-architecture i386
 RUN apt-get update
-RUN apt-get -yq install wine1.7
+RUN apt-get -yq install wine1.7 winetricks xvfb
 
 # install python
 RUN add-apt-repository ppa:fkrull/deadsnakes
