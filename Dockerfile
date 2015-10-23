@@ -24,13 +24,14 @@ RUN apt-get -yq install python2.7
 RUN useradd -m -s /bin/bash steam
 RUN usermod -a -G video,audio,tty steam
 RUN mkdir -p /home/steam/steamcmd
-RUN chown -R steam. /home/steam
-#RUN gpasswd -a steam tty
-USER steam
 RUN mkdir /home/steam/spaceengineers
-RUN cd /home/steam/spaceengineers
-RUN wget -O start.sh https://raw.githubusercontent.com/ArghArgh200/SEDS-Setup/master/start.sh
-RUN chmod +x start.sh
+#RUN gpasswd -a steam tty
+# RUN wget https://raw.githubusercontent.com/ArghArgh200/SEDS-Setup/master/start.sh
+ADD start.sh /home/steam/spaceengineers/start.sh
+RUN chmod +x  /home/steam/spaceengineers/start.sh
+RUN chown -R steam. /home/steam
+WORKDIR /home/steam/spaceengineers
+USER steam
 
-ENTRYPOINT ["/start.sh"]
+ENTRYPOINT ["/home/steam/spaceengineers/start.sh"]
 
