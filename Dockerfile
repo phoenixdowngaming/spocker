@@ -26,11 +26,12 @@ RUN useradd -m -s /bin/bash steam
 RUN usermod -a -G video,audio,tty steam
 RUN mkdir -p /home/steam/steamcmd
 RUN mkdir /home/steam/spaceengineers
-RUN mkdir /home/steam/pdg_saves
+RUN mkdir /home/steam/PhoenixDownGaming
 RUN gpasswd -a steam tty
 #RUN wget https://raw.githubusercontent.com/ArghArgh200/SEDS-Setup/master/start.sh
 ADD start.sh /home/steam/spaceengineers/start.sh
 ADD run.sh /home/steam/spaceengineers/run.sh
+ADD msxml3.msi /home/steam/msxml3.msi
 ADD Saves/PhoenixDownGaming/* /home/steam/PhoenixDownGaming/
 RUN chmod +x  /home/steam/spaceengineers/start.sh
 RUN chmod +x  /home/steam/spaceengineers/run.sh

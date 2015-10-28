@@ -54,11 +54,11 @@ case "$1" in
                 wget -q -O steamcmd_linux.tar.gz https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz
                 tar -xzf steamcmd_linux.tar.gz
 
-                #configure our wine directory and make some symlinks
-		cp -rf $HOME/pdg_saves/ $HOME/spaceengineers/config/Saves/
+		cp -rf $HOME/PhoenixDownGaming/ $HOME/spaceengineers/config/Saves/
 
-	
+                #configure our wine directory and make some symlinks
                 echo "Configuring WINE and installing dependencies."
+		cp $HOME/msxml3.msi $HOME/.cache/winetricks/msxml3
                 WINEDEBUG=-all WINEARCH=win32 winecfg > /dev/null
                 WINEDEBUG=-all winetricks -q msxml3 > /dev/null
                 WINEDEBUG=-all winetricks -q dotnet40 > /dev/null
