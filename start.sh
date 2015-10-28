@@ -46,6 +46,7 @@ case "$1" in
                 mkdir $HOME/spaceengineers/client
                 mkdir $HOME/spaceengineers/config/backups
                 mkdir $HOME/spaceengineers/config/logs
+                mkdir $HOME/spaceengineers/config/Saves
                 rm -rf $HOME/spaceengineers/Steamcmd
                 mkdir -p $HOME/spaceengineers/Steamcmd
                 cd $HOME/spaceengineers/Steamcmd
@@ -54,7 +55,9 @@ case "$1" in
                 tar -xzf steamcmd_linux.tar.gz
 
                 #configure our wine directory and make some symlinks
-                cd $HOME
+		cp -rf $HOME/pdg_saves/ $HOME/spaceengineers/config/Saves/
+
+	
                 echo "Configuring WINE and installing dependencies."
                 WINEDEBUG=-all WINEARCH=win32 winecfg > /dev/null
                 WINEDEBUG=-all winetricks -q msxml3 > /dev/null
@@ -63,6 +66,10 @@ case "$1" in
                 ln -s $HOME/spaceengineers/config $HOME/.wine/drive_c/users/$whoami/Application\ Data/SpaceEngineersDedicated
                 echo "Initial setup complete."
 
+		# install PDG mods
+		cd $HOME/spaceengineers/
+		mkdir 		
+		
                 #install and update steamcmd
                 echo "Installing and updating SteamCMD"
                 #run twice because the first time we need to make steamcmd download its files before attempting a login
