@@ -19,7 +19,7 @@ RUN apt-get -yq install wine1.7 winetricks xvfb
 RUN add-apt-repository ppa:fkrull/deadsnakes
 RUN apt-get update
 RUN apt-get -yq install python2.7
-RUN apt-get -yq install screen byobu
+RUN apt-get -yq install screen byobu desktop-file-utils
 
 # get and run setup script
 RUN useradd -m -s /bin/bash steam
