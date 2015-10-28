@@ -16,7 +16,7 @@ case "$1" in
                 cd ..
 
                 #clear old binaries and get new ones
-                cd config/Saves/SEDSWorld
+                cd config/Saves/PhoenixDownGaming
                 echo "Cleaning world of dead NPC entries - Credits to Andy_S of #space-engineers"
                 wget -q -O ../../worldcleaner.py https://github.com/deltaflyer4747/SE_Cleaner/raw/master/clean.py
                 python ../../worldcleaner.py
@@ -29,7 +29,7 @@ case "$1" in
                 #copy server world and log to backups and logs directories
                 cd ../config
                 mv SpaceEngineersDedicated.log logs/server-$logstamper.log
-                cp -rf Saves/SEDSWorld backups/world-$logstamper-svhalt
+                cp -rf Saves/PhoenixDownGaming backups/world-$logstamper-svhalt
         ;;
         setup)  #run only once.
                 echo "Press enter to confirm complete wipe of your WINE's configuration directory. If you have installed anything under regular WINE and want to keep it, press Ctrl-C now!"
@@ -76,7 +76,7 @@ case "$1" in
                 cd $HOME/spaceengineers/Steamcmd/
                 ./steamcmd.sh +exit
                 ./steamcmd.sh +login anonymous +exit
-                echo "Setup complete. Please place your server's .cfg file in ~/spaceengineers/config/SpaceEngineers-Dedicated.cfg.  You'll need to edit it and change the <LoadWorld /> part to read: <LoadWorld>C:\users\\$whoami\Application Data\SpaceEngineersDedicated\Saves\SEDSWorld</LoadWorld>."
+                echo "Setup complete. Please place your server's .cfg file in ~/spaceengineers/config/SpaceEngineers-Dedicated.cfg.  You'll need to edit it and change the <LoadWorld /> part to read: <LoadWorld>C:\users\\$whoami\Application Data\SpaceEngineersDedicated\Saves\PhoenixDownGaming</LoadWorld>."
         ;;
         backupworld) #put an entry in your crontab pointing to this script with the first argument being 'backupworld'.
                 logstampworld=`date +%s`

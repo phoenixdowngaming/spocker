@@ -28,7 +28,7 @@ RUN mkdir -p /home/steam/steamcmd
 RUN mkdir /home/steam/spaceengineers
 RUN mkdir /home/steam/pdg_saves
 RUN gpasswd -a steam tty
-RUN wget https://raw.githubusercontent.com/ArghArgh200/SEDS-Setup/master/start.sh
+#RUN wget https://raw.githubusercontent.com/ArghArgh200/SEDS-Setup/master/start.sh
 ADD start.sh /home/steam/spaceengineers/start.sh
 ADD run.sh /home/steam/spaceengineers/run.sh
 ADD Saves/* /home/steam/pdg_saves/
