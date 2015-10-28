@@ -31,7 +31,7 @@ RUN gpasswd -a steam tty
 #RUN wget https://raw.githubusercontent.com/ArghArgh200/SEDS-Setup/master/start.sh
 ADD start.sh /home/steam/spaceengineers/start.sh
 ADD run.sh /home/steam/spaceengineers/run.sh
-ADD Saves/* /home/steam/pdg_saves/
+ADD Saves/PhoenixDownGaming/* /home/steam/PhoenixDownGaming/
 RUN chmod +x  /home/steam/spaceengineers/start.sh
 RUN chmod +x  /home/steam/spaceengineers/run.sh
 RUN chown -R steam. /home/steam
